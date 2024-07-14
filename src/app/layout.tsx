@@ -2,6 +2,9 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import Script from 'next/script';
+import Image from 'next/image';
+import clsx from 'clsx';
+import BottomTabs from '@/components/BottomTabs/BottomTabs';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,7 +21,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Script src="https://telegram.org/js/telegram-web-app.js" />
-      <body className={inter.className}>{children}</body>
+      <body
+        className={clsx(
+          inter.className,
+          "bg-[url('/background.png')] bg-cover min-h-screen flex flex-col theme-gold text-white"
+        )}>
+        <main className="flex flex-col flex-1">
+          {children}
+          <BottomTabs />
+        </main>
+      </body>
     </html>
   );
 }
