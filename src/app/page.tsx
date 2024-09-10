@@ -9,6 +9,7 @@ export default function Home() {
   return (
     <main className="container pt-10">
       {isLighthouse ? <h1>IS LIGHT HOUSE</h1> : <h1>THIS IS NOT LIGHT HOUSE</h1>}
+      {userAgent}
     </main>
   );
 }
